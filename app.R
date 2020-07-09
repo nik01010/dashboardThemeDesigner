@@ -131,6 +131,8 @@ server <- function(input, output, session)
   sidebarTabTextColorHover <- callModule(module = serverColourInputFlat, id = "sidebarTabTextColorHover")
   sidebarTabBorderColorHover <- callModule(module = serverColourInputFlat, id = "sidebarTabBorderColorHover")
   sidebarTabBorderWidthHover <- callModule(module = serverNumericInput, id = "sidebarTabBorderWidthHover")
+  
+  # Boxes
   boxBackColor <- callModule(module = serverColourInputFlat, id = "boxBackColor")
   boxBorderRadius <- callModule(module = serverNumericInput, id = "boxBorderRadius")
   boxTitleSize <- callModule(module = serverNumericInput, id = "boxTitleSize")
