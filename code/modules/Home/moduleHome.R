@@ -61,7 +61,19 @@ serverHome <- function(input, output, session)
               h4("Text size: h1"),
               h5("Text size: h1")
               
-            )
+            )#,
+            
+            # column(
+            #   
+            #   width = 2,
+            #   
+            #   h3("Primary text", class = "text-primary"),
+            #   h3("Info text", class = "text-info"),
+            #   h3("Success text", class = "text-success"),
+            #   h3("Warning text", class = "text-warning"),
+            #   h3("Danger text", class = "text-danger")
+            #   
+            # )
             
           )
           
