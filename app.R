@@ -402,6 +402,7 @@ server <- function(input, output, session)
                 br(),
                 
                 h5("Once your choices are finalised, copy the below generated customTheme code and include it in your project."),
+                h5("You will also need to have the dashboardthemes package installed."),
                 
                 aceEditor(
                   outputId = "tbxThemeSettingsOutput",
@@ -409,7 +410,7 @@ server <- function(input, output, session)
                   mode = "r",
                   theme = "chrome",
                   readOnly = TRUE,
-                  height = "400px"
+                  height = "350px"
                 ),
                 
                 br(),
