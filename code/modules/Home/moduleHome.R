@@ -35,6 +35,8 @@ serverHome <- function(input, output, session)
               
               width = 2,
               
+              br(),
+              
               div(
                 style = "font-size: 80%;",
                 
@@ -53,13 +55,18 @@ serverHome <- function(input, output, session)
             
             column(
               
-              width = 2,
+              width = 9,
+              offset = 1,
+              
+              h3("Examples:"),
+              hr(),
               
               h1("Text size: h1"),
               h2("Text size: h1"),
               h3("Text size: h1"),
               h4("Text size: h1"),
-              h5("Text size: h1")
+              h5("Text size: h1"),
+              h6("Text size: h6")
               
             )#,
             
@@ -87,6 +94,8 @@ serverHome <- function(input, output, session)
             column(
               
               width = 2,
+              
+              br(),
               
               div(
                 style = "font-size: 80%;",
@@ -118,6 +127,8 @@ serverHome <- function(input, output, session)
               
               width = 2,
               
+              br(),
+              
               div(
                 style = "font-size: 80%;",
               
@@ -138,6 +149,8 @@ serverHome <- function(input, output, session)
             column(
               
               width = 2,
+              
+              br(),
               
               div(
                 style = "font-size: 80%;",
@@ -179,6 +192,8 @@ serverHome <- function(input, output, session)
               
               width = 2,
               
+              br(),
+              
               div(
                 style = "font-size: 80%;",
                 
@@ -200,6 +215,8 @@ serverHome <- function(input, output, session)
               
               width = 2,
               
+              br(),
+              
               div(
                 style = "font-size: 80%;",
                 
@@ -220,7 +237,11 @@ serverHome <- function(input, output, session)
             
             column(
               
-              width = 8,
+              width = 7,
+              offset = 1,
+              
+              h3("Examples:"),
+              hr(),
               
               fluidRow(
                 
@@ -408,6 +429,8 @@ serverHome <- function(input, output, session)
               
               width = 2,
               
+              br(),
+              
               div(
                 style = "font-size: 80%;",
                 
@@ -426,6 +449,8 @@ serverHome <- function(input, output, session)
               
               width = 2,
               
+              br(),
+              
               div(
                 style = "font-size: 80%;",
                 
@@ -436,6 +461,98 @@ serverHome <- function(input, output, session)
                 uiColourInputFlat(namespaceId = "textboxBorderColorSelect", label = "Textbox Border Colour Selected", default = "rgb(108,108,108)")
               )
 
+            ),
+            
+            column(
+              
+              width = 7,
+              offset = 1,
+              
+              h3("Examples:"),
+              hr(),
+              
+              column(
+                
+                width = 3,
+                
+                selectInput(
+                  inputId = ns("dbxSelectInput"),
+                  label = "Select Input",
+                  choices = c(
+                    "Option 1",
+                    "Option 2",
+                    "Option 3",
+                    "Option 4",
+                    "Option 5"
+                  ),
+                  selected = TRUE,
+                  multiple = FALSE
+                ),
+                
+                selectizeInput(
+                  inputId = ns("dbxSelectizeInput"),
+                  label = "Selectize Input (Multiple)",
+                  choices = c(
+                    "Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6", "Option 7", "Option 8"
+                  ),
+                  selected = c(
+                    "Option 1", "Option 2", "Option 3", "Option 4", "Option 5"
+                  ),
+                  multiple = TRUE
+                ),
+                
+                textInput(
+                  inputId = ns("txtTextInput"),
+                  label = "Text Input",
+                  value = NULL,
+                  placeholder = "Write here..."
+                ),
+                
+                dateInput(
+                  inputId = ns("dteDateInput"),
+                  label = "Date Input",
+                  value = Sys.Date(),
+                  weekstart = 1
+                )
+                
+              ),
+              
+              column(
+                
+                width = 3,
+                offset = 1,
+               
+                h5(strong("Button: Plain")),
+                actionButton(
+                  inputId = ns("cmdActionButton"),
+                  label = "Press to Start",
+                  width = 198
+                ),
+                
+                h5(strong("Button: Icon")),
+                actionButton(
+                  inputId = ns("cmdActionButtonIcon"),
+                  label = "Press to Start",
+                  icon = icon("gear"),
+                  width = 198
+                ),
+                
+                h5(strong("Button: no label")),
+                actionButton(
+                  inputId = ns("cmdActionButtonNoLabel1"),
+                  label = NULL,
+                  icon = icon("envelope"),
+                  width = 97
+                ),
+                actionButton(
+                  inputId = ns("cmdActionButtonNoLabel2"),
+                  label = NULL,
+                  icon = icon("trash"),
+                  width = 97
+                )
+                 
+              )
+              
             )
             
           )
@@ -451,15 +568,90 @@ serverHome <- function(input, output, session)
               
               width = 2,
               
+              br(),
+              
               div(
                 style = "font-size: 80%;",
                 
                 uiColourInputFlat(namespaceId = "tableBackColor", label = "Table Background Colour", default = "rgb(248,248,248)"),
-                uiColourInputFlat(namespaceId = "tableBorderColor", label = "Table Background Colour", default = "rgb(238,238,238)"),
-                uiNumericInput(namespaceId = "tableBorderTopSize", label = "Textbox Border Radius", default = 1),
-                uiNumericInput(namespaceId = "tableBorderRowSize", label = "Textbox Border Radius", default = 1)
+                uiColourInputFlat(namespaceId = "tableBorderColor", label = "Table Border Colour", default = "rgb(238,238,238)"),
+                uiNumericInput(namespaceId = "tableBorderTopSize", label = "Table Border Top Size", default = 1),
+                uiNumericInput(namespaceId = "tableBorderRowSize", label = "Table Border Row Size", default = 1)
               )
               
+            ),
+            
+            column(
+              
+              width = 9,
+              offset = 1,
+              
+              h3("Examples:"),
+              hr(),
+              
+              column(
+                
+                width = 4,
+                
+                h4("Table"),
+                tableOutput(ns("tblTable"))
+                
+              ),
+              
+              column(
+                
+                width = 8,
+                
+                h4("DataTable"),
+                div(
+                  style = "font-size: 80%;",
+                  dataTableOutput(ns("tblDataTable"))
+                )
+                
+              )
+              
+            )
+            
+          )
+          
+        ),
+        
+        tabPanel(
+          title = "Other Examples",
+          
+          fluidRow(
+            
+            column(
+              
+              width = 3,
+             
+              br(),
+              br(),
+              actionButton(
+                inputId = ns("cmdNotification"),
+                label = "Notification",
+                icon = icon("clock-o"),
+                width = "100%"
+              ),
+
+              br(),
+              br(),
+              actionButton(
+                inputId = ns("cmdProgressBar"),
+                label = "Progress Bar",
+                icon = icon("spinner"),
+                width = "100%"
+              ),
+              
+              br(),
+              br(),
+              actionButton(
+                inputId = ns("cmdModalPopup"),
+                label = "Modal pop-up",
+                icon = icon("square-o"),
+                width = "100%"
+              )
+               
             )
             
           )
@@ -472,6 +664,146 @@ serverHome <- function(input, output, session)
     
   })
 
-  output$appFontFamily <- renderText({"App Font Family: Arial"})
+  output$appFontFamily <- renderText({
+    "App Font Family: Arial"
+  })
   
+  output$tblTable <- renderTable({
+    data.frame(
+      String = c("Item A", "Item B", "Item C", "Item D", "Item E"),
+      Numeric = c(1.10, 1.20, 1.30, 1.40, 1.50),
+      Date = c("2014-01-01", "2015-01-01", "2016-01-01", "2017-01-01", "2018-01-01"),
+      ..... = c(".....", ".....", ".....", ".....", ".....")
+    )
+  })
+  
+  output$tblDataTable <- renderDataTable({
+    datatable(
+      # Table data
+      data = EuStockMarkets,
+      
+      # Hiding row names
+      rownames = FALSE,
+      
+      # Single row can be selected
+      selection = "single",
+      
+      # Enabling buttons on top of table and scrollbar
+      extensions = c("Buttons", "Scroller"),
+      
+      # Filter
+      filter = "bottom",
+      
+      options = list(
+        # Table components can be added/removed here
+        dom = "Blfrtip",
+        
+        # Freezing panes
+        fixedHeader = TRUE,
+        
+        # Specify buttons on top of table
+        buttons = c("copy", "excel", I("colvis")),
+        
+        # Scroll heights
+        scrollY = 300,
+        scrollX = 500,
+        
+        # Page length and menu
+        paging = TRUE,
+        pageLength = 50,
+        lengthMenu = list(
+          c(50, 100, 500, -1),
+          list("50", "100", "500", "All")
+        )
+      )
+      
+    )
+  })
+  
+  observeEvent(
+    input$cmdNotification, 
+    {
+    
+      showNotification(
+        ui = "This is an example notification!",
+        duration = NULL,
+        closeButton = TRUE
+      )
+    
+    }
+  )
+  
+  observeEvent(
+    input$cmdProgressBar, 
+    {
+      withProgress(
+        message = "Example task",
+        value = 0,
+        min = 0,
+        max = 4,
+        {
+          incProgress(amount = 1, detail = "Sub-task 1")
+          Sys.sleep(2)
+          
+          incProgress(amount = 1, detail = "Sub-task 2")
+          withProgress(
+            message = "Sub-task 2 detail",
+            value = 0,
+            min = 1,
+            max = 5,
+            {
+              for (i in 1:5) {
+                incProgress(amount = 1, detail = glue("Processing item {i}"))
+                Sys.sleep(2)
+              }
+            }
+          )
+          
+          incProgress(amount = 1, detail = "Sub-task 3")
+          Sys.sleep(2)
+        }
+      )
+    }
+  )
+  
+  observeEvent(input$cmdModalPopup, {
+    
+    output$tblModalDataTable <- renderDataTable({
+        head(mtcars)
+    })
+    
+    mdlExample <- modalDialog(
+      
+      title = "Example Modal",
+      size = "l",
+      {
+        
+        fluidPage(
+          
+          fluidRow(
+            
+            h5(strong("Example content")),
+            hr(),
+            h5("Example wording..."),
+            br(),
+            
+            textInput(
+              inputId = "txtModalInput",
+              label = "Example text input",
+              placeholder = "Write here..."
+            ),
+            
+            dataTableOutput(ns("tblModalDataTable"))
+            
+          )
+          
+        )
+        
+      }
+      
+    )
+    
+    showModal(mdlExample)
+    
+  })
 }

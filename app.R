@@ -82,7 +82,7 @@ ui <- dashboardPage(
       
       tabItem(tabName = "tabHome", uiHome()),
       
-      tabItem(tabName = "tabThemeOutput", uiOutput("uiThemeSettingsText"))
+      tabItem(tabName = "tabThemeOutput", uiOutput("uiThemeOutput"))
       
     )
     
@@ -278,122 +278,188 @@ server <- function(input, output, session)
       'customTheme <- shinyDashboardThemeDIY(
         ### general
         appFontFamily = "Arial"
-        ,appFontColor = {appFontColor$colourValue}
-        ,primaryFontColor = {primaryFontColor$colourValue}
-        ,infoFontColor = {infoFontColor$colourValue}
-        ,successFontColor = {successFontColor$colourValue}
-        ,warningFontColor = {warningFontColor$colourValue}
-        ,dangerFontColor = {dangerFontColor$colourValue}
-        ,bodyBackColor = {bodyBackColor$colourValue}
+        ,appFontColor = "{appFontColor$colourValue}"
+        ,primaryFontColor = "{primaryFontColor$colourValue}"
+        ,infoFontColor = "{infoFontColor$colourValue}"
+        ,successFontColor = "{successFontColor$colourValue}"
+        ,warningFontColor = "{warningFontColor$colourValue}"
+        ,dangerFontColor = "{dangerFontColor$colourValue}"
+        ,bodyBackColor = "{bodyBackColor$colourValue}"
         
         ### header
-        ,logoBackColor = {logoBackColor$colourValue}
+        ,logoBackColor = "{logoBackColor$colourValue}"
         
-        ,headerButtonBackColor = {headerButtonBackColor$colourValue}
-        ,headerButtonIconColor = {headerButtonIconColor$colourValue}
-        ,headerButtonBackColorHover = {headerButtonBackColorHover$colourValue}
-        ,headerButtonIconColorHover = {headerButtonIconColorHover$colourValue}
+        ,headerButtonBackColor = "{headerButtonBackColor$colourValue}"
+        ,headerButtonIconColor = "{headerButtonIconColor$colourValue}"
+        ,headerButtonBackColorHover = "{headerButtonBackColorHover$colourValue}"
+        ,headerButtonIconColorHover = "{headerButtonIconColorHover$colourValue}"
         
-        ,headerBackColor = {headerBackColor$colourValue}
+        ,headerBackColor = "{headerBackColor$colourValue}"
         ,headerBoxShadowColor = ""
         ,headerBoxShadowSize = "0px 0px 0px"
         
         ### sidebar
-        ,sidebarBackColor = {sidebarBackColor$colourValue}
-        ,sidebarPadding = {sidebarPadding$numberValue}
+        ,sidebarBackColor = "{sidebarBackColor$colourValue}"
+        ,sidebarPadding = "{sidebarPadding$numberValue}"
         
         ,sidebarMenuBackColor = "transparent"
-        ,sidebarMenuPadding = {sidebarMenuPadding$numberValue}
+        ,sidebarMenuPadding = "{sidebarMenuPadding$numberValue}"
         ,sidebarMenuBorderRadius = 0
         
         ,sidebarShadowRadius = ""
         ,sidebarShadowColor = "0px 0px 0px"
         
-        ,sidebarUserTextColor = {sidebarUserTextColor$colourValue}
+        ,sidebarUserTextColor = "{sidebarUserTextColor$colourValue}"
         
-        ,sidebarSearchBackColor = {sidebarSearchBackColor$colourValue}
-        ,sidebarSearchIconColor = {sidebarSearchIconColor$colourValue}
-        ,sidebarSearchBorderColor = {sidebarSearchBorderColor$colourValue}
+        ,sidebarSearchBackColor = "{sidebarSearchBackColor$colourValue}"
+        ,sidebarSearchIconColor = "{sidebarSearchIconColor$colourValue}"
+        ,sidebarSearchBorderColor = "{sidebarSearchBorderColor$colourValue}"
         
-        ,sidebarTabTextColor = {sidebarTabTextColor$colourValue}
-        ,sidebarTabTextSize = {sidebarTabTextSize$numberValue}
+        ,sidebarTabTextColor = "{sidebarTabTextColor$colourValue}"
+        ,sidebarTabTextSize = "{sidebarTabTextSize$numberValue}"
         ,sidebarTabBorderStyle = "none"
         ,sidebarTabBorderColor = "none"
-        ,sidebarTabBorderWidth = {sidebarTabBorderWidth$numberValue}
+        ,sidebarTabBorderWidth = "{sidebarTabBorderWidth$numberValue}"
         
-        ,sidebarTabBackColorSelected = {sidebarTabBackColorSelected$colourValue}
-        ,sidebarTabTextColorSelected = {sidebarTabTextColorSelected$colourValue}
+        ,sidebarTabBackColorSelected = "{sidebarTabBackColorSelected$colourValue}"
+        ,sidebarTabTextColorSelected = "{sidebarTabTextColorSelected$colourValue}"
         ,sidebarTabRadiusSelected = "0px"
         
-        ,sidebarTabBackColorHover = {sidebarTabBackColorHover$colourValue}
-        ,sidebarTabTextColorHover = {sidebarTabTextColorHover$colourValue}
+        ,sidebarTabBackColorHover = "{sidebarTabBackColorHover$colourValue}"
+        ,sidebarTabTextColorHover = "{sidebarTabTextColorHover$colourValue}"
         ,sidebarTabBorderStyleHover = "none solid none none"
-        ,sidebarTabBorderColorHover = {sidebarTabBorderColorHover$colourValue}
-        ,sidebarTabBorderWidthHover = {sidebarTabBorderWidthHover$numberValue}
+        ,sidebarTabBorderColorHover = "{sidebarTabBorderColorHover$colourValue}"
+        ,sidebarTabBorderWidthHover = "{sidebarTabBorderWidthHover$numberValue}"
         ,sidebarTabRadiusHover = "0px"
         
         ### boxes
-        ,boxBackColor = {boxBackColor$colourValue}
-        ,boxBorderRadius = {boxBorderRadius$numberValue}
+        ,boxBackColor = "{boxBackColor$colourValue}"
+        ,boxBorderRadius = "{boxBorderRadius$numberValue}"
         ,boxShadowSize = "none"
         ,boxShadowColor = ""
-        ,boxTitleSize = {boxTitleSize$numberValue}
-        ,boxDefaultColor = {boxDefaultColor$colourValue}
-        ,boxPrimaryColor = {boxPrimaryColor$colourValue}
-        ,boxInfoColor = {boxInfoColor$colourValue}
-        ,boxSuccessColor = {boxSuccessColor$colourValue}
-        ,boxWarningColor = {boxWarningColor$colourValue}
-        ,boxDangerColor = {boxDangerColor$colourValue}
+        ,boxTitleSize = "{boxTitleSize$numberValue}"
+        ,boxDefaultColor = "{boxDefaultColor$colourValue}"
+        ,boxPrimaryColor = "{boxPrimaryColor$colourValue}"
+        ,boxInfoColor = "{boxInfoColor$colourValue}"
+        ,boxSuccessColor = "{boxSuccessColor$colourValue}"
+        ,boxWarningColor = "{boxWarningColor$colourValue}"
+        ,boxDangerColor = "{boxDangerColor$colourValue}"
         
-        ,tabBoxTabColor = {tabBoxTabColor$colourValue}
-        ,tabBoxTabTextSize = {tabBoxTabTextSize$numberValue}
-        ,tabBoxTabTextColor = {tabBoxTabTextColor$colourValue}
-        ,tabBoxTabTextColorSelected = {tabBoxTabTextColorSelected$colourValue}
-        ,tabBoxBackColor = {tabBoxBackColor$colourValue}
-        ,tabBoxHighlightColor = {tabBoxHighlightColor$colourValue}
-        ,tabBoxBorderRadius = {tabBoxBorderRadius$numberValue}
+        ,tabBoxTabColor = "{tabBoxTabColor$colourValue}"
+        ,tabBoxTabTextSize = "{tabBoxTabTextSize$numberValue}"
+        ,tabBoxTabTextColor = "{tabBoxTabTextColor$colourValue}"
+        ,tabBoxTabTextColorSelected = "{tabBoxTabTextColorSelected$colourValue}"
+        ,tabBoxBackColor = "{tabBoxBackColor$colourValue}"
+        ,tabBoxHighlightColor = "{tabBoxHighlightColor$colourValue}"
+        ,tabBoxBorderRadius = "{tabBoxBorderRadius$numberValue}"
         
         ### inputs
-        ,buttonBackColor = {buttonBackColor$colourValue}
-        ,buttonTextColor = {buttonTextColor$colourValue}
-        ,buttonBorderColor = {buttonBorderColor$colourValue}
-        ,buttonBorderRadius = {buttonBorderRadius$numberValue}
+        ,buttonBackColor = "{buttonBackColor$colourValue}"
+        ,buttonTextColor = "{buttonTextColor$colourValue}"
+        ,buttonBorderColor = "{buttonBorderColor$colourValue}"
+        ,buttonBorderRadius = "{buttonBorderRadius$numberValue}"
         
-        ,buttonBackColorHover = {buttonBackColorHover$colourValue}
-        ,buttonTextColorHover = {buttonTextColorHover$colourValue}
-        ,buttonBorderColorHover = {buttonBorderColorHover$colourValue}
+        ,buttonBackColorHover = "{buttonBackColorHover$colourValue}"
+        ,buttonTextColorHover = "{buttonTextColorHover$colourValue}"
+        ,buttonBorderColorHover = "{buttonBorderColorHover$colourValue}"
         
-        ,textboxBackColor = {textboxBackColor$colourValue}
-        ,textboxBorderColor = {textboxBorderColor$colourValue}
-        ,textboxBorderRadius = {textboxBorderRadius$numberValue}
-        ,textboxBackColorSelect = {textboxBackColorSelect$colourValue}
-        ,textboxBorderColorSelect = {textboxBorderColorSelect$colourValue}
+        ,textboxBackColor = "{textboxBackColor$colourValue}"
+        ,textboxBorderColor = "{textboxBorderColor$colourValue}"
+        ,textboxBorderRadius = "{textboxBorderRadius$numberValue}"
+        ,textboxBackColorSelect = "{textboxBackColorSelect$colourValue}"
+        ,textboxBorderColorSelect = "{textboxBorderColorSelect$colourValue}"
         
         ### tables
-        ,tableBackColor = {tableBackColor$colourValue}
-        ,tableBorderColor = {tableBorderColor$colourValue}
-        ,tableBorderTopSize = {tableBorderTopSize$numberValue}
-        ,tableBorderRowSize = {tableBorderRowSize$numberValue}
+        ,tableBackColor = "{tableBackColor$colourValue}"
+        ,tableBorderColor = "{tableBorderColor$colourValue}"
+        ,tableBorderTopSize = "{tableBorderTopSize$numberValue}"
+        ,tableBorderRowSize = "{tableBorderRowSize$numberValue}"
       )'
     )
     
     output$uiUpdatedTheme <- renderUI({
       themeSettings
     })
-    
-    # browser()
-    output$uiThemeSettingsText <- renderUI({
-      aceEditor(
-        outputId = "tbxThemeSettingsOutput",
-        value = as.character(themeSettingsText),
-        mode = "r",
-        theme = "chrome",
-        readOnly = TRUE,
-        height = "700px"
+
+    output$uiThemeOutput <- renderUI({
+      fluidRow(
+        
+        tabBox(
+          id = "tbxThemeOutput",
+          selected = "Selected Settings",
+          title = "Theme Output",
+          width = 12,
+          
+          tabPanel(
+            title = "Selected Settings",
+            
+            fluidRow(
+              
+              column(
+                
+                width = 4,
+                
+                br(),
+                
+                h5("Once your choices are finalised, copy the below generated customTheme code and include it in your project."),
+                
+                aceEditor(
+                  outputId = "tbxThemeSettingsOutput",
+                  value = as.character(themeSettingsText),
+                  mode = "r",
+                  theme = "chrome",
+                  readOnly = TRUE,
+                  height = "400px"
+                ),
+                
+                br(),
+                
+                h5("Then call the object in shinydashboard to apply the custom theme settings."),
+                
+                aceEditor(
+                  outputId = "tbxThemeSettingsOutputInstructions",
+                  value = "
+                    ...
+                    ### ui body
+                      dashboardBody(
+                    
+                        ### changing theme
+                        customTheme
+                    
+                        ### ui tabs
+                        ,tabItems(
+                          tabItem(
+                          ...",
+                  mode = "r",
+                  theme = "chrome",
+                  readOnly = TRUE,
+                  height = "170px"
+                )
+                
+              )
+              
+            )
+            
+          )
+          
+        )
+        
       )
+      
     })
     
   })
+  
+  observeEvent(
+    input$cmdSidebarSearch,
+    {
+      shinyalert(
+        title = "Oops!",
+        text = "This button does not do anything!",
+        type = "info"
+      )
+    }
+  )
 
 }
 
