@@ -17,7 +17,7 @@ importShinyModules()
 ui <- dashboardPage(
   
   # Browser window title
-  title = "Shinydashboard Theme Designer",
+  title = "Theme Designer",
   
   # Header ------------------------------------------------------------------
   header = dashboardHeader(
