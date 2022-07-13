@@ -1,6 +1,4 @@
 # dashboardThemeDesigner
-<a href="https://nik01010.wordpress.com/" target="_blank">Blog</a> | <a href="https://nik01010.wordpress.com/contact/" target="_blank">Contact</a>
-<br>
 
 Live shinydashboard theme designer, using the <a href="https://github.com/nik01010/dashboardthemes" target="_blank">dashboardthemes</a> package.
 
